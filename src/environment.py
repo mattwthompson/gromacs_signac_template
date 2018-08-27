@@ -14,6 +14,8 @@ class RahmanEnvironment(flow.environment.TorqueEnvironment):
 
     @classmethod
     def script(cls, _id, nn, walltime, ppn=None, **kwargs):
+        if nn is None:
+            nn = 1
         if ppn is None:
             ppn = cls.cores_per_node
         js = super(RahmanEnvironment, cls).script()
